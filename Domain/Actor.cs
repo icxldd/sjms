@@ -1,9 +1,16 @@
-﻿using sjms.Inteface;
+﻿using sjms._Composite;
+using sjms.Inteface;
 using sjms.Subject;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+/*
+    1.单例
+    2.工厂
+    3.建造者
+    4.观察者
+ 
+ */
 namespace sjms.Domain
 {
     public abstract class Actor : IPeopleFactory, Observer.IObserver
@@ -32,7 +39,7 @@ namespace sjms.Domain
 
         public virtual void BeAttacked()
         {
-            Console.WriteLine(this.Name + "在被攻击");
+       //     Console.WriteLine(this.Name + "在被攻击");
             this.control.NotifyObserver(this.Name);
         }
 
@@ -51,11 +58,25 @@ namespace sjms.Domain
     {
         public int jiehunID { get; set; }
 
+        public Folder beibao { get; set; }
+
 
         public roleActor(AllyControlCenter control) : base(control)
         {
-
+            beibao = new Folder("背包");
+            ResFile a = new ResFile("a");
+            ResFile b = new ResFile("b");
+            ResFile c = new ResFile("c");
+            beibao.Add(a);
+            beibao.Add(b);
+            beibao.Add(c);
         }
+        public void checkPack()
+        {
+            beibao.KillVirus();
+        }
+
+
 
 
     }

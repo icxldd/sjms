@@ -14,13 +14,13 @@ namespace sjms.Subject
         public void Join(Observer.IObserver observer)
         {
             playerList.Add(observer);
-            Console.WriteLine("通知：{0} 加入 {1} 战队", observer.OBName, this.AllyName);
+           // Console.WriteLine("通知：{0} 加入 {1} 战队", observer.OBName, this.AllyName);
         }
 
         public void Quit(Observer.IObserver observer)
         {
             playerList.Remove(observer);
-            Console.WriteLine("通知：{0} 退出 {1} 战队", observer.OBName, this.AllyName);
+          //  Console.WriteLine("通知：{0} 退出 {1} 战队", observer.OBName, this.AllyName);
         }
 
         // 声明抽象通知方法

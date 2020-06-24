@@ -41,6 +41,11 @@ namespace sjms
         private ConcreteAllyControlCenter guaiwuControl { get; set; }
         private IList<Actor> roles { get; set; }
         private IList<Actor> guaiwus { get; set; }
+
+        public IList<Actor> GetRolesList()
+        {
+            return roles;
+        }
         private Actor selfRole { get; set; }
         public Actor GetGuaiWu()
         {

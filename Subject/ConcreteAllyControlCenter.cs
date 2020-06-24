@@ -8,7 +8,7 @@ namespace sjms.Subject
     {
         public ConcreteAllyControlCenter(string allyName)
         {
-            Console.WriteLine($"------------------------{allyName}军团-------------------------------");
+           // Console.WriteLine($"------------------------{allyName}军团-------------------------------");
             this.AllyName = allyName;
 
         }
