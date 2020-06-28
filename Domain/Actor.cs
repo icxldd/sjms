@@ -1,5 +1,6 @@
 ﻿using sjms._Composite;
 using sjms.Inteface;
+using sjms.Strategy;
 using sjms.Subject;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,6 @@ using System.Text;
     2.工厂
     3.建造者
     4.观察者
- 
  */
 namespace sjms.Domain
 {
@@ -22,6 +22,22 @@ namespace sjms.Domain
         public int level { get; set; }
         public int A { get; set; }
         public string Name { get; set; }
+
+        private int mp;
+
+        public IMP Discount { get; set; }
+        public int MP
+        {
+            get
+            {
+                return Discount.CalculateMP(mp);
+            }
+            set
+            {
+                mp = value;
+            }
+        }
+
 
         public string OBName { get => this.Name; }
         public AllyControlCenter control { get; set; }
@@ -37,9 +53,12 @@ namespace sjms.Domain
             return m.HP;
         }
 
+
+        public abstract void BKey();
+
         public virtual void BeAttacked()
         {
-       //     Console.WriteLine(this.Name + "在被攻击");
+            //     Console.WriteLine(this.Name + "在被攻击");
             this.control.NotifyObserver(this.Name);
         }
 
@@ -76,9 +95,10 @@ namespace sjms.Domain
             beibao.KillVirus();
         }
 
-
-
-
+        public override void BKey()
+        {
+            Console.WriteLine("renwu B Key");
+        }
     }
 
 
@@ -88,6 +108,10 @@ namespace sjms.Domain
         public guaiwuActor(AllyControlCenter control) : base(control)
         {
 
+        }
+        public override void BKey()
+        {
+            Console.WriteLine("guaiwu B Key");
         }
     }
 
